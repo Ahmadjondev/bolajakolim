@@ -1,0 +1,15 @@
+.DS_Store
+.venv
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.env
+*.pem
+*.key
+*.crt
+
+
+node_modules/
+dist/
+.next/

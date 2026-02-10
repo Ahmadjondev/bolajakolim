@@ -1,0 +1,30 @@
+# /etc/systemd/system/bolajakolim-celery.service
+
+[Unit]
+Description=Bolajakolim Celery Worker
+After=network.target redis.service
+Wants=redis.service
+
+[Service]
+User=deploy
+Group=www-data
+WorkingDirectory=/home/inventory/bolajakolim/backend
+EnvironmentFile=/home/inventory/bolajakolim/backend/.env
+
+ExecStart=/home/inventory/bolajakolim/backend/.venv/bin/celery \
+    -A config.celery worker \
+    --loglevel=info \
+    --concurrency=2
+
+Restart=on-failure
+RestartSec=10
+KillSignal=SIGTERM
+TimeoutStopSec=300
+
+# Security hardening
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+{
+  "name": "bolajakolim",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "lucide-react": "^0.563.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

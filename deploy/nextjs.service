@@ -1,0 +1,26 @@
+# /etc/systemd/system/bolajakolim-frontend.service
+
+[Unit]
+Description=Bolajakolim Next.js Frontend
+After=network.target
+
+[Service]
+User=deploy
+Group=www-data
+WorkingDirectory=/home/inventory/bolajakolim/frontend
+EnvironmentFile=/home/inventory/bolajakolim/frontend/.env.production
+
+ExecStart=/usr/bin/node /home/inventory/bolajakolim/frontend/node_modules/.bin/next start --port 3001
+Restart=on-failure
+RestartSec=5
+
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+# Security hardening
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
